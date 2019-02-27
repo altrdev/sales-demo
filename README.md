@@ -41,7 +41,7 @@ The only valid documents are:
 I used MongoDb Embedded as a database.
 It is populated every time the application restarted
 
-The first start may be slower, as dependencies will be downloaded.
+The first start may be slower, mongo embedded dependencies will be downloaded.
 
 
 

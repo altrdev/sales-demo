@@ -1,6 +1,6 @@
 package com.sales.taxes.demo.controller;
 
-import com.sales.taxes.demo.bean.Invoice;
+import com.sales.taxes.demo.bean.Receipt;
 import com.sales.taxes.demo.exception.NotFoundException;
 import com.sales.taxes.demo.service.BillingService;
 import lombok.AllArgsConstructor;
@@ -20,17 +20,17 @@ import java.util.List;
 @RequestMapping(value = "/v1/receipts", produces = MediaType.APPLICATION_JSON_VALUE)
 @RestController
 @Slf4j
-public class InvoiceController {
+public class ReceiptController {
 
     private final BillingService billingService;
 
     /**
-     * Api that returns Invoice list
+     * Api that returns Receipt list
      *
      * @return response json
      */
     @RequestMapping(method = RequestMethod.GET, produces = "application/json")
-    public ResponseEntity<List<Invoice>> getAll() {
+    public ResponseEntity<List<Receipt>> getAll() {
         log.info("Incoming getOne request");
         try {
             return new ResponseEntity<>(billingService.getAllInvoice(), HttpStatus.OK);
@@ -47,7 +47,7 @@ public class InvoiceController {
      * @return
      */
     @RequestMapping(value = "/{basketId}", method = RequestMethod.GET, produces = "application/json")
-    public ResponseEntity<Invoice> getOne(@PathVariable("basketId") String basketId) {
+    public ResponseEntity<Receipt> getOne(@PathVariable("basketId") String basketId) {
         log.info("Incoming getOne request");
         try {
             return new ResponseEntity<>(billingService.getInvoice(basketId), HttpStatus.OK);

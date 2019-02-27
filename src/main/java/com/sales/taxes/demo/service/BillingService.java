@@ -1,7 +1,7 @@
 package com.sales.taxes.demo.service;
 
-import com.sales.taxes.demo.bean.Invoice;
 import com.sales.taxes.demo.bean.Product;
+import com.sales.taxes.demo.bean.Receipt;
 import com.sales.taxes.demo.entity.Basket;
 import com.sales.taxes.demo.exception.InternalServerException;
 import com.sales.taxes.demo.exception.NotFoundException;
@@ -30,9 +30,9 @@ public class BillingService {
      * Returns single invoice
      *
      * @param basketId uniqueId for basket item
-     * @return single Invoice
+     * @return single Receipt
      */
-    public Invoice getInvoice(String basketId) {
+    public Receipt getInvoice(String basketId) {
         Optional<Basket> basket = basketRepository.findOneByBasketId(basketId);
         if (!basket.isPresent())
             throw new NotFoundException(String.format("Id %s not found", basketId));
@@ -43,46 +43,46 @@ public class BillingService {
     /**
      * Returns all invoices
      *
-     * @return list of Invoice
+     * @return list of Receipt
      */
-    public List<Invoice> getAllInvoice() {
+    public List<Receipt> getAllInvoice() {
         List<Basket> basketList = basketRepository.findAll();
 
-        List<Invoice> invoices = new ArrayList<>();
+        List<Receipt> receipts = new ArrayList<>();
 
         for (Basket basket : basketList)
-            invoices.add(getInvoice(basket));
+            receipts.add(getInvoice(basket));
 
 
-        return invoices;
+        return receipts;
     }
 
     /**
      * Common Logic
      *
      * @param basket Basket Entity, recovered from database
-     * @return single Invoice
+     * @return single Receipt
      */
-    protected Invoice getInvoice(Basket basket) {
+    protected Receipt getInvoice(Basket basket) {
         try {
-            Invoice invoice = new Invoice();
-            invoice.setId(basket.getBasketId());
+            Receipt receipt = new Receipt();
+            receipt.setId(basket.getBasketId());
             List<Product> products = basket.getProducts()
                     .stream()
                     .peek(product -> {
                         BigDecimal taxes = product.taxCalculator().add(product.importTaxCalculator());
                         BigDecimal totalPrice = product.totalPriceCalculator(taxes);
-                        invoice.setTaxesAmount(taxes.add((invoice.getTaxesAmount())));
-                        invoice.setTotalAmount(invoice.getTotalAmount().add(totalPrice));
+                        receipt.setTaxesAmount(taxes.add((receipt.getTaxesAmount())));
+                        receipt.setTotalAmount(receipt.getTotalAmount().add(totalPrice));
                     })
                     .collect(Collectors.toList());
 
-            invoice.setProducts(products);
+            receipt.setProducts(products);
 
             // set to debug
-            log.info(invoice.toString());
+            log.info(receipt.toString());
 
-            return invoice;
+            return receipt;
         } catch (Exception e) {
             log.error("Unexpected error: {}", e.getMessage());
             throw new InternalServerException(String.format("Error processing %s", basket.getBasketId()));

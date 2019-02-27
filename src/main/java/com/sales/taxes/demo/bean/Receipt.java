@@ -14,7 +14,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Invoice implements Serializable {
+public class Receipt implements Serializable {
     private static final long serialVersionUID = 221707435390921526L;
 
     private String id;
