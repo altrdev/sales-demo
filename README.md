@@ -22,7 +22,7 @@ If you see an error like `Fatal error compiling: invalid target release: 11`, pl
 
 There are unit tests under `src/test/java`, but I also exposed two REST API for get the results.
 
-##Usage
+## Usage
 Import this [Postman Collection](https://www.getpostman.com/collections/c06ec6165bfc83ec13c4).
 
 GET `/api/v1/receipts` come back three documents
@@ -37,7 +37,7 @@ The only valid documents are:
 
 `268f1260-0215-4e36-8c4f-dbc0dcd56812`
 
-##Other
+## Other
 I used MongoDb Embedded as a database.
 It is populated every time the application restarted
 
