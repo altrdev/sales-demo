@@ -1,0 +1,80 @@
+[
+  {
+    "basketId": "f0f56086-6f4c-4ede-9700-35bd351f78af",
+    "products": [
+      {
+        "description": "book",
+        "category": "book",
+        "price": 12.49,
+        "quantity": 2,
+        "imported": false
+      },
+      {
+        "description": "music CD",
+        "category": "other",
+        "price": 14.99,
+        "quantity": 1,
+        "imported": false
+      },
+      {
+        "description": "chocolate bar",
+        "category": "food",
+        "price": 0.85,
+        "quantity": 1,
+        "imported": false
+      }
+    ]
+  },
+  {
+    "basketId": "4616e590-089c-4794-b265-2702bb079da5",
+    "products": [
+      {
+        "description": "box of chocolates",
+        "category": "food",
+        "price": 10.00,
+        "quantity": 1,
+        "imported": true
+      },
+      {
+        "description": "bottle of perfume",
+        "category": "other",
+        "price": 47.50,
+        "quantity": 1,
+        "imported": true
+      }
+    ]
+  },
+  {
+    "basketId": "268f1260-0215-4e36-8c4f-dbc0dcd56812",
+    "products": [
+      {
+        "description": "bottle of perfume",
+        "category": "other",
+        "price": 27.99,
+        "quantity": 1,
+        "imported": true
+      },
+      {
+        "description": "bottle of perfume",
+        "category": "other",
+        "price": 18.99,
+        "quantity": 1,
+        "imported": false
+      },
+      {
+        "description": "packet of headache pills",
+        "category": "medical",
+        "price": 9.75,
+        "quantity": 1,
+        "imported": false
+      },
+      {
+        "description": "box of chocolates",
+        "category": "food",
+        "price": 11.25,
+        "quantity": 3,
+        "imported": true
+      }
+    ]
+  }
+]
