@@ -22,6 +22,11 @@ public class Invoice implements Serializable {
     private BigDecimal taxesAmount = new BigDecimal("0");
     private BigDecimal totalAmount = new BigDecimal("0");
 
+    /**
+     * Show plain text in a log
+     *
+     * @return string of details
+     */
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();

@@ -41,6 +41,11 @@ public abstract class Product implements BillingStrategy {
     public Product() {
     }
 
+    /**
+     * Common Logic for import tax
+     *
+     * @return import tax amount
+     */
     @Override
     public BigDecimal importTaxCalculator() {
         if (imported) {
@@ -53,8 +58,14 @@ public abstract class Product implements BillingStrategy {
         return new BigDecimal("0");
     }
 
+    /**
+     * Common Logic for total price
+     *
+     * @param taxes previously calculated
+     * @return total price amount
+     */
     @Override
-    public BigDecimal calculateTotalPrice(BigDecimal taxes) {
+    public BigDecimal totalPriceCalculator(BigDecimal taxes) {
         BigDecimal totalPrice = new BigDecimal(this.getPrice()).multiply(new BigDecimal(this.getQuantity()));
         totalPrice = totalPrice.add(taxes);
         totalPrice = totalPrice.setScale(2, RoundingMode.HALF_UP);

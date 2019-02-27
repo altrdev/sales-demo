@@ -26,7 +26,7 @@ public class MathUtility {
 
     /**
      * this method formats the number as required
-     * Returns the value rounded up to the nearest 0.05.
+     * Returns the value rounded up to the nearest 0.05
      *
      * @param number Input number
      * @return double with only 2 digits

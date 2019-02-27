@@ -24,7 +24,12 @@ public class InvoiceController {
 
     private final BillingService billingService;
 
-    @RequestMapping(method = RequestMethod.GET, produces = {"application/json", "text/plain"})
+    /**
+     * Api that returns Invoice list
+     *
+     * @return response json
+     */
+    @RequestMapping(method = RequestMethod.GET, produces = "application/json")
     public ResponseEntity<List<Invoice>> getAll() {
         log.info("Incoming getOne request");
         try {
@@ -35,7 +40,13 @@ public class InvoiceController {
         }
     }
 
-    @RequestMapping(value = "/{basketId}", method = RequestMethod.GET, produces = {"application/json", "text/plain"})
+    /**
+     * Api that returns single invoice
+     *
+     * @param basketId unique identifier for basket item
+     * @return
+     */
+    @RequestMapping(value = "/{basketId}", method = RequestMethod.GET, produces = "application/json")
     public ResponseEntity<Invoice> getOne(@PathVariable("basketId") String basketId) {
         log.info("Incoming getOne request");
         try {

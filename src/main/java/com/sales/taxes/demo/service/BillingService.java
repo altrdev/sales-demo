@@ -71,7 +71,7 @@ public class BillingService {
                     .stream()
                     .peek(product -> {
                         BigDecimal taxes = product.taxCalculator().add(product.importTaxCalculator());
-                        BigDecimal totalPrice = product.calculateTotalPrice(taxes);
+                        BigDecimal totalPrice = product.totalPriceCalculator(taxes);
                         invoice.setTaxesAmount(taxes.add((invoice.getTaxesAmount())));
                         invoice.setTotalAmount(invoice.getTotalAmount().add(totalPrice));
                     })

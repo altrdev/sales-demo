@@ -7,14 +7,24 @@ import java.math.BigDecimal;
  */
 public interface BillingStrategy {
     /**
-     * @return
+     * calculator for base taxes
+     *
+     * @return base tax total
      */
     BigDecimal taxCalculator();
 
     /**
-     * @return
+     * Calculator for import taxes
+     *
+     * @return importTax total
      */
     BigDecimal importTaxCalculator();
 
-    BigDecimal calculateTotalPrice(BigDecimal taxes);
+    /**
+     * Calculator for total price
+     *
+     * @param taxes previously calculated
+     * @return total price
+     */
+    BigDecimal totalPriceCalculator(BigDecimal taxes);
 }

@@ -14,11 +14,15 @@ public class Other extends Product {
         super();
     }
 
+    /**
+     * Custom logic for Other category
+     *
+     * @return total tax amount
+     */
     @Override
     public BigDecimal taxCalculator() {
         BigDecimal tax = MathUtility.getTaxAmount(this.getPrice(), 10);
         tax = tax.multiply(new BigDecimal(this.getQuantity()));
-        //tax = roundNumber(tax); //TODO vedere se serve
         return tax;
     }
 }
