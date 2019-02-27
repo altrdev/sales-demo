@@ -10,6 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.Assert.*;
 
@@ -31,8 +32,11 @@ public class BillingServiceTest {
      */
     @Test
     public void getInvoiceLogicItem1() {
-        Basket basket = basketRepository.findOneByBasketId("f0f56086-6f4c-4ede-9700-35bd351f78af");
-        Invoice invoice1 = billingService.getInvoice(basket);
+        Optional<Basket> basket = basketRepository.findOneByBasketId("f0f56086-6f4c-4ede-9700-35bd351f78af");
+        if (!basket.isPresent())
+            fail("Should not be here!");
+
+        Invoice invoice1 = billingService.getInvoice(basket.get());
 
         assertEquals("42.32", invoice1.getTotalAmount().toString());
         assertEquals("1.50", invoice1.getTaxesAmount().toString());
@@ -64,8 +68,11 @@ public class BillingServiceTest {
      */
     @Test
     public void getInvoiceLogicItem2() {
-        Basket basket = basketRepository.findOneByBasketId("4616e590-089c-4794-b265-2702bb079da5");
-        Invoice invoice1 = billingService.getInvoice(basket);
+        Optional<Basket> basket = basketRepository.findOneByBasketId("4616e590-089c-4794-b265-2702bb079da5");
+        if (!basket.isPresent())
+            fail("Should not be here!");
+
+        Invoice invoice1 = billingService.getInvoice(basket.get());
 
         assertEquals("65.15", invoice1.getTotalAmount().toString());
         assertEquals("7.65", invoice1.getTaxesAmount().toString());
@@ -91,8 +98,11 @@ public class BillingServiceTest {
      */
     @Test
     public void getInvoiceLogicItem3() {
-        Basket basket = basketRepository.findOneByBasketId("268f1260-0215-4e36-8c4f-dbc0dcd56812");
-        Invoice invoice1 = billingService.getInvoice(basket);
+        Optional<Basket> basket = basketRepository.findOneByBasketId("268f1260-0215-4e36-8c4f-dbc0dcd56812");
+        if (!basket.isPresent())
+            fail("Should not be here!");
+        
+        Invoice invoice1 = billingService.getInvoice(basket.get());
 
         assertEquals("98.38", invoice1.getTotalAmount().toString());
         assertEquals("7.90", invoice1.getTaxesAmount().toString());

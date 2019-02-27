@@ -1,5 +1,6 @@
 package com.sales.taxes.demo.bean;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.sales.taxes.demo.strategy.BillingStrategy;
@@ -26,6 +27,7 @@ import static com.sales.taxes.demo.utility.MathUtility.roundNumber;
 })
 @AllArgsConstructor
 @Data
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public abstract class Product implements BillingStrategy {
     private String description;
     private String category;

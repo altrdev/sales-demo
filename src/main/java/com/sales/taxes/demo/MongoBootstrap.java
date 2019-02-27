@@ -6,6 +6,7 @@ import com.sales.taxes.demo.entity.Basket;
 import com.sales.taxes.demo.repository.BasketRepository;
 import com.sales.taxes.demo.service.BillingService;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -18,6 +19,7 @@ import java.util.List;
  */
 @Component
 @AllArgsConstructor
+@Slf4j
 public class MongoBootstrap implements CommandLineRunner {
 
     private final BasketRepository basketRepository;
@@ -30,9 +32,6 @@ public class MongoBootstrap implements CommandLineRunner {
 
         // set embedded database from json file
         setBasketRepository();
-
-        //billingService.getInvoice("268f1260-0215-4e36-8c4f-dbc0dcd56812");
-        billingService.getAllInvoice();
 
     }
 
@@ -47,9 +46,9 @@ public class MongoBootstrap implements CommandLineRunner {
         try {
             List<Basket> invoices = mapper.readValue(inputStream, typeReference);
             basketRepository.saveAll(invoices);
-            System.out.println("Baskets Saved!");
+            log.info("Saved in database successfully!");
         } catch (IOException e) {
-            System.out.println("Unable to save baskets: " + e.getMessage());
+            log.error("Unable to save in database: {}", e.getMessage());
         }
     }
 
