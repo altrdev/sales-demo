@@ -37,6 +37,8 @@ The only valid documents are:
 
 `268f1260-0215-4e36-8c4f-dbc0dcd56812`
 
+You can see the call log and response log in terminal console.
+
 ## Other
 I used MongoDb Embedded as a database.
 It is populated every time the application restarted
