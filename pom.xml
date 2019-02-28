@@ -47,11 +47,26 @@
         </dependency>
     </dependencies>
 
+    <scm>
+        <url>https://github.com/altrdev/sales-demo</url>
+        <connection>scm:git:git@github.com/altrdev/sales-demo.git</connection>
+        <developerConnection>scm:git:git@github.com/altrdev/sales-demo.git</developerConnection>
+    </scm>
+
     <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.3</version>
+                <configuration>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                    <tagNameFormat>@{project.version}</tagNameFormat>
+                    <releaseProfiles>release</releaseProfiles>
+                </configuration>
             </plugin>
         </plugins>
     </build>
