@@ -49,8 +49,8 @@
 
     <scm>
         <url>https://github.com/altrdev/sales-demo</url>
-        <connection>scm:git:git@github.com/altrdev/sales-demo.git</connection>
-        <developerConnection>scm:git:git@github.com/altrdev/sales-demo.git</developerConnection>
+        <connection>scm:git:https://github.com/altrdev/sales-demo</connection>
+        <developerConnection>scm:git:https://github.com/altrdev/sales-demo</developerConnection>
     </scm>
 
     <build>
