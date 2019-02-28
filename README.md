@@ -3,6 +3,10 @@
 Sales-Taxes-Kata 
 
 ## Installation
+Clone the project in your workspace
+```bash
+git clone git@github.com:altrdev/sales-demo.git
+```
 
 Use Maven [mvn](https://maven.apache.org/download.cgi) to build and execute Sales-Taxes-Kata.
 
