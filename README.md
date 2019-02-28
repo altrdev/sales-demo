@@ -7,13 +7,13 @@ Sales-Taxes-Kata
 Use Maven [mvn](https://maven.apache.org/download.cgi) to build and execute Sales-Taxes-Kata.
 
 ```bash
-mvn package && java -jar target/demo-0.0.1.jar
+mvn package && java -jar target/demo-0.1.1.jar
 ```
 
 If port 8080 already in use, you can specify another one with `-Dserver.port=9090`
 
 ```bash
-mvn package && java -jar -Dserver.port=9090 target/demo-0.0.1.jar
+mvn package && java -jar -Dserver.port=9090 target/demo-0.1.1.jar
 ```
 
 If you see an error like `Fatal error compiling: invalid target release: 11`, please make sure you have `jdk 11`
