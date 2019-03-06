@@ -4,23 +4,61 @@ Sales-Taxes-Kata
 
 ## Installation
 Clone the project in your workspace
+
 ```bash
 git clone git@github.com:altrdev/sales-demo.git
 ```
+Go inside project root
+
+```bash
+cd sales-demo
+```
+##### Without Docker
 
 Use Maven [mvn](https://maven.apache.org/download.cgi) to build and execute Sales-Taxes-Kata.
 
 ```bash
-mvn package && java -jar target/demo-0.1.1.jar
+mvn package && java -jar target/sales-taxes.jar
 ```
 
 If port 8080 already in use, you can specify another one with `-Dserver.port=9090`
-
 ```bash
-mvn package && java -jar -Dserver.port=9090 target/demo-0.1.1.jar
+mvn package && java -jar -Dserver.port=9090 target/sales-taxes.jar
 ```
 
 If you see an error like `Fatal error compiling: invalid target release: 11`, please make sure you have `jdk 11`
+
+##### With Docker
+Starting Docker in your computer and build a docker image
+
+```bash
+mvn package && docker build -t sales-taxes:latest .
+```
+
+If you see an error like `Fatal error compiling: invalid target release: 11`, please make sure you have `jdk 11`
+
+Starting docker image
+
+```bash
+docker run -p 8080:8080 sales-taxes:latest
+```
+
+###### If you don't have jdk11, I've published image to DockerHub
+
+Pull image
+
+```bash
+docker pull altrdev/sales-taxes
+```
+
+Starting docker image
+
+```bash
+docker run -p 8080:8080 altrdev/sales-taxes:latest
+```
+
+
+Wait for mongo embedded dependencies to be downloaded before calling the APIs.
 
 ## Testing
 
