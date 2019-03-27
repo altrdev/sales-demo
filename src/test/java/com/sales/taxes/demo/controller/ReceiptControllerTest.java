@@ -17,14 +17,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
 /**
- * |__________________________________________________________
- * |   _                      __                              |
- * |  (_) __ _  ___  ___  ___/ /__  _______ _ _______  __ _   |
- * |     /  ' \/ _ \/ _ \/ _  / _ \/ __/ _ `// __/ _ \/  ' \  |
- * |(_) /_/_/_/\___/_//_/\_,_/\___/_/  \_,_(_)__/\___/_/_/_/  |
- * |                 - computing essence -                    |
- * |__________________________________________________________|
- * |
  * Created by alessandrotravi on 27/02/2019.
  */
 @RunWith(SpringRunner.class)
